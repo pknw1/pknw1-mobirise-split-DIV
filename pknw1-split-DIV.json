@@ -1,0 +1,60 @@
+{   
+"data": {
+    "_customHTML": "<section group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n         'mbr-fullscreen': fullScreen,\n         'mbr-parallax-background': bg.parallax}\" class>\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"minHeight\" name=\"minHeight\" min=\"300\" max=\"1200\" step=\"100\" value=\"300\" condition=\"fullScreen == false\">\n\n        <input type=\"checkbox\" title=\"Show Arrow\" name=\"showArrow\" checked>\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>\n\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background4.jpg\" selected parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#cccccc\">\n            <input type=\"video\" title=\"Background Video\" value>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay min-height\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div class=\"div-ct min-height\">\n    <div class=\"container align-center\" style=\"width:50%; float:left;\">\n        <div class=\"row justify-content-md-center\">\n            <div class=\"mbr-white col-md-10\">\n                <h1 class=\"mbr-section-title mbr-bold pb-3 mbr-fonts-style\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\">\n                    LEFT DIV\n                </h1>\n                <h3 class=\"mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style\" mbr-theme-style=\"display-2\" mbr-if=\"showSubTitle\">\n                    DIV Subtitle\n                </h3>\n                <p class=\"mbr-text pb-3 mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                    DIV text</p>\n                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-md btn-primary\" href=\"https:\/\/www.pknw1.co.uk\" data-app-placeholder=\"Type Text\">LEARN MORE</a>\n                    <a class=\"btn btn-md btn-secondary\" href=\"https:\/\/www.pknw1.co.uk\" data-app-placeholder=\"Type Text\">LIVE DEMO</a></div>\n            </div>\n        </div>\n    </div>\n    <div class=\"container align-center\" style=\"width:50%; float:right\">\n        <div class=\"row justify-content-md-center\">\n            <div class=\"mbr-white col-md-10\">\n                <h1 class=\"mbr-section-title mbr-bold pb-3 mbr-fonts-style\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\">\n                    RIGHT DIV\n                </h1>\n                <h3 class=\"mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style\" mbr-theme-style=\"display-2\" mbr-if=\"showSubTitle\">\n                    DIV Subtitle\n                </h3>\n                <p class=\"mbr-text pb-3 mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                    DIV text</p>\n                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\">\n                    <a class=\"btn btn-md btn-secondary\" href=\"https:\/\/www.pknw1.co.uk\">LEARN MORE</a>\n                    <a class=\"btn btn-md btn-white-outline\" href=\"https:\/\/www.pknw1.co.uk\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    </div>\n    <div mbr-if=\"showArrow\" class=\"mbr-arrow hidden-sm-down\" aria-hidden=\"true\">\n        <a href=\"#next\">\n            <i class=\"mbri-down mbr-iconfont\"></i>\n        </a>\n    </div>\n</section>\n",
+    "_styles": {
+  "padding-top": "(@paddingTop * 15px)",
+  "padding-bottom": "(@paddingBottom * 15px)",
+  "min-height": "@minHeight",
+  "& when (@bg-type = 'color')": {
+    "background-color": "@bg-value"
+  },
+  "& when (@bg-type = 'image')": {
+    "background-image": "url(@bg-value)"
+  },
+  "& when (@bg-type = 'video')": {},
+  ".min-height": {
+	"height": "(@minHeight * 1px)"
+	},
+  ".mbr-section": {
+    "text-align": "center",
+    "color": "#fff"
+  },
+  ".mbr-overlay": {
+    "height": "(@minHeight + (@paddingTop * 15px) + (@paddingBottom * 15px) )"
+  },
+  ".banner-heading .cont": {
+    "color": "#fff ",
+    "font-size": "47px",
+    "font-weight": "500",
+    "text-decoration": "none",
+    "display": "block"
+  },
+  ".banner-heading P": {
+    "color": "#fff",
+    "padding-bottom": "20px",
+    "font-size": "19px",
+    "font-weight": "400"
+  },
+  ".banner-heading span p": {
+    "color": "#cd0e00"
+  },
+  ".btn": {
+    "display": "inline-block",
+    "background-color": "#ff7200",
+    "color": "#fff",
+    "font-weight": "400",
+    "text-align": "center",
+    "white-space": "nowrap",
+    "vertical-align": "middle",
+    "-webkit-user-select": "none",
+    "-moz-user-select": "none",
+    "-ms-user-select": "none",
+    "user-select": "none",
+    "border": "1px solid #ff7200",
+    "padding": ".375rem .75rem",
+    "font-size": "1rem",
+    "line-height": "1.5",
+    "border-radius": ".25rem",
+    "transition": "color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out"
+  }
+}}}
